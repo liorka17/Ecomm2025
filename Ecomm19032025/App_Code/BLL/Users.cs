@@ -43,5 +43,10 @@ namespace BLL
         {
             return UsersDAL.DeleteById(Uid);//מחזירה את הפונקציה שמוחקת את המשתמש לפי הקוד
         }
+
+        public static Users CheckLogin(string Email, string Pass)//בודקת אם המשתמש קיים
+        {
+            return UsersDAL.CheckLogin(Email, Pass);//מחזירה את הפונקציה שבודקת אם המשתמש קיים
+        }
     }
 }

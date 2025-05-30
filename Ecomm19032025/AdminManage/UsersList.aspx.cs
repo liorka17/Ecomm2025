@@ -12,7 +12,8 @@ namespace Ecomm19032025.AdminManage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        
+
+
             if (!IsPostBack)
             {
                 List<Users> lst = Users.GetAll();//מחזירה את כל המשתמשים

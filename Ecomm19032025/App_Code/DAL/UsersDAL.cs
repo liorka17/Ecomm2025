@@ -107,6 +107,28 @@ namespace DAL
             return i;//מחזירה את מספר השורות שהוסרו מהמסד נתונים
         }
 
+        public static Users CheckLogin(string Email, string Pass)//בודקת אם המשתמש קיים
+        {
+            DbContext Db = new DbContext();//יצירת אובייקט מסוג דאטה בייס
+            string sql = $"SELECT * FROM T_Users WHERE Email=N'{Email}' AND Pass=N'{Pass}'";//שאילתא שמחזירה את היוזר לפי אימייל וסיסמא
+            DataTable Dt = Db.Execute(sql);//מחזירה את היוזר לפי אימייל וסיסמא
+            Users Tmp = null;//יצירת אובייקט מסוג יוזר
+            if (Dt.Rows.Count ==1)//אם יש שורות בטבלה
+            {
+                Tmp = new Users()//יצירת אובייקט מסוג יוזר ומילוי השדות שלו עם הערכים שנשלפו ממסד הנתונים
+                {
+                    Uid = int.Parse(Dt.Rows[0]["Uid"] + ""),//קוד משתמש
+                    Email = (string)Dt.Rows[0]["Email"]+"",//שם מלא
+                    Pass = (string)Dt.Rows[0]["Pass"]+"",//סיסמא
+                    FullName = (string)Dt.Rows[0]["FullName"] + "",//אימייל
+                    Phone = (string)Dt.Rows[0]["Phone"] + "",//טלפון
+                    Adress = (string)Dt.Rows[0]["Adress"] + "",//כתובת
+                };
+            };       
+            Db.Close();//סגירת החיבור לבסיס הנתונים
+            return Tmp;//מחזירה את היוזר שנמצא או null אם לא נמצא
+        }
+
         public static int DeleteById(int Uid)//מוחקת את היוזר לפי קוד
         {
             DbContext Db = new DbContext();//יצירת אובייקט מסוג דאטה בייס
@@ -115,5 +137,7 @@ namespace DAL
             Db.Close();//סגירת החיבור לבסיס הנתונים
             return i;//מחזירה את היוזר שנמחק
         }
+
+
     }
 }

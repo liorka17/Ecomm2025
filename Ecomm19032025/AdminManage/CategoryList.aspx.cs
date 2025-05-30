@@ -10,8 +10,11 @@ namespace Ecomm19032025.AdminManage
 {
     public partial class CategoryList : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 List<Category> lst = Category.GetAll();

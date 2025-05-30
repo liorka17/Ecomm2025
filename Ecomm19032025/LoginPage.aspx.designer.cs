@@ -11,8 +11,26 @@ namespace Ecomm19032025
 {
 
 
-    public partial class login
+    public partial class LoginPage
     {
+
+        /// <summary>
+        /// lightTheme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink lightTheme;
+
+        /// <summary>
+        /// darkTheme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink darkTheme;
 
         /// <summary>
         /// form1 control.
@@ -24,31 +42,31 @@ namespace Ecomm19032025
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// TextEmail control.
+        /// TxtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextEmail;
+        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
 
         /// <summary>
-        /// TextUser control.
+        /// TxtPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextUser;
+        protected global::System.Web.UI.WebControls.TextBox TxtPass;
 
         /// <summary>
-        /// TextPass control.
+        /// Rememberme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextPass;
+        protected global::System.Web.UI.WebControls.CheckBox Rememberme;
 
         /// <summary>
         /// BtnLogin control.
@@ -58,14 +76,5 @@ namespace Ecomm19032025
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnLogin;
-
-        /// <summary>
-        /// LtlMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LtlMsg;
     }
 }

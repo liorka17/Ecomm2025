@@ -13,7 +13,9 @@ namespace Ecomm19032025.AdminManage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+
+
+            if (!IsPostBack)
             {
                 List<Product> lst = Product.GetAll();
                 RptProds.DataSource = lst;//מקשרת את רשימת המוצרים לריפיטר
