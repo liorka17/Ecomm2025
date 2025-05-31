@@ -23,13 +23,39 @@ namespace EcommWebApi.controllers
         }
 
         // POST: api/Category
-        public void Post([FromBody]string value)
+        public Category Post([FromBody] Category value)
         {
+            value.Cid = -1;
+            Category category = new Category
+            {
+                Cid = value.Cid, 
+                Cname = value.Cname,
+                ParentCid = value.ParentCid,
+                CatDesc = value.CatDesc,
+                Status = value.Status
+            };
+
+            category.Save(); 
+            return category; 
         }
 
         // PUT: api/Category/5
-        public void Put(int id, [FromBody]string value)
+        public Category Put(int id, [FromBody]Category value)
         {
+            if (value != null)
+            {
+                Category category = new Category
+                {
+                    Cid = id,
+                    Cname = value.Cname,
+                    ParentCid = value.ParentCid,
+                    CatDesc = value.CatDesc,
+                    Status = value.Status
+                };
+                category.Save();
+                return category;
+            }
+            return null;
         }
 
         // DELETE: api/Category/5

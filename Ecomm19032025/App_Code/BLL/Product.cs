@@ -8,7 +8,7 @@ namespace BLL//BLL - Business Logic Layer
 {
     public class Product//מחלקת מוצרים
     {
-        public int Pid { get; set; }//קוד מוצר
+        public int Pid { get; set; } //קוד מוצר
 
         public string Pname { get; set; }//שם המוצר
 

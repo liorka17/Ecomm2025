@@ -23,18 +23,42 @@ namespace EcommWebApi.controllers
         }
 
         // POST: api/Users
-        public void Post([FromBody]Users value)
-        {
-           
-
-
+        public Users Post([FromBody]Users value)
+        {         
+            value.Uid = -1;
+            Users user = new Users
+            {
+                Uid = value.Uid, 
+                FullName = value.FullName,
+                Pass = value.Pass,
+                Email = value.Email,
+                Phone = value.Phone,
+                Adress = value.Adress,
+                Status = value.Status
+            };
+            user.Save(); 
+            return user;
         }
 
         // PUT: api/Users/5
-        public void Put(int id, [FromBody]Users value)
+        public Users Put(int id, [FromBody]Users value)
         {
-
-
+            if (value != null)
+            {
+                Users user = new Users
+                {
+                    Uid = id,
+                    FullName = value.FullName,
+                    Pass = value.Pass,
+                    Email = value.Email,
+                    Phone = value.Phone,
+                    Adress = value.Adress,
+                    Status = value.Status
+                };
+                user.Save();
+                return user;
+            }
+            return null;
         }
 
         // DELETE: api/Users/5

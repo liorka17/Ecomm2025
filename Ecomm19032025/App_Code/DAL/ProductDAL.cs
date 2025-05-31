@@ -91,6 +91,7 @@ namespace DAL
                       $"Status={Tmp.Status} " +///סטטוס המוצר
                       $"WHERE Pid={Tmp.Pid}";//מוסיפה את הערכים לשאילתא
             }
+            Console.WriteLine(sql); // או Debug.WriteLine או כל הדפסה מתאימה
 
             int i = Db.ExecuteNonQuery(sql);//מחזירה מספר שורות שהוסרו מהמסד נתונים
 

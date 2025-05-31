@@ -11,9 +11,9 @@ namespace EcommWebApi.controllers
     public class ProductController : ApiController
     {
         // GET: api/Product
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Product.GetAll();
         }
 
         // GET: api/Product/5
@@ -23,18 +23,48 @@ namespace EcommWebApi.controllers
         }
 
         // POST: api/Product
-        public void Post([FromBody]string value)
+        public Product Post([FromBody]Product value)
         {
+            value.Pid = -1;
+            Product product = new Product
+                {
+                    Pid = value.Pid, 
+                    Pname = value.Pname,
+                    Pdesc = value.Pdesc,
+                    Price = value.Price,
+                    Cid = value.Cid,
+                    Picname = value.Picname,
+                    Status = value.Status
+                };
+                product.Save();
+            return product;
         }
 
         // PUT: api/Product/5
-        public void Put(int id, [FromBody]string value)
+        public Product Put(int id, [FromBody] Product value)
         {
+            if (value != null)
+            {
+                Product product = new Product
+                {
+                    Pid = id,
+                    Pname = value.Pname,
+                    Pdesc = value.Pdesc,
+                    Price = value.Price,
+                    Cid = value.Cid,
+                    Picname = value.Picname,
+                    Status = value.Status
+                };
+                product.Save();
+                return product;
+            }
+            return null;
         }
 
         // DELETE: api/Product/5
         public void Delete(int id)
         {
+
         }
     }
 }

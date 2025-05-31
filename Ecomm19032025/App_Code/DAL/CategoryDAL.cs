@@ -89,13 +89,16 @@ namespace DAL
                 sql += $"CatDesc = N'{Tmp.CatDesc}' ";
                 sql += $"WHERE Cid = {Tmp.Cid}";
             }
-
             int i = Db.ExecuteNonQuery(sql);// מחזירה מספר שורות שהוסרו מהמסד נתונים
+            if (Tmp.Cid == -1)
+            {
+                sql = $"SELECT MAX(Cid) FROM T_Category WHERE Cname = N'{Tmp.Cname}'";
+                Tmp.Cid = (int)Db.ExecuteScalar(sql);
+            }
+
             Db.Close();// סגירת החיבור למסד
             return i;// מחזירה את מספר השורות שהוסרו
         }
-
-
 
         public static int DeleteById(int Cid)//מוחקת את הקטגוריה לפי קוד
         {

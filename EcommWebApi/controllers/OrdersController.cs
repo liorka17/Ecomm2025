@@ -23,13 +23,43 @@ namespace EcommWebApi.controllers
         }
 
         // POST: api/Orders
-        public void Post([FromBody]string value)
+        public Orders Post([FromBody] Orders value)
         {
+            value.OrderId = -1; 
+            Orders orders = new Orders
+            {
+                OrderId = value.OrderId, 
+                Uid = value.Uid,
+                TotalAmount = value.TotalAmount,
+                TotalPrice = value.TotalPrice,
+                Status = value.Status,
+                OrderDate = value.OrderDate,
+                OrderDesc = value.OrderDesc
+
+            };
+            orders.Save();
+            return orders;
         }
 
         // PUT: api/Orders/5
-        public void Put(int id, [FromBody]string value)
+        public Orders Put(int id, [FromBody] Orders value)
         {
+            if (value != null)
+            {
+                Orders orders = new Orders
+                {
+                    OrderId = id,
+                    Uid = value.Uid,
+                    TotalAmount = value.TotalAmount,
+                    TotalPrice = value.TotalPrice,
+                    Status = value.Status,
+                    OrderDate = value.OrderDate,
+                    OrderDesc = value.OrderDesc
+                };
+                orders.Save();
+                return orders;
+            }
+            return null;
         }
 
         // DELETE: api/Orders/5
